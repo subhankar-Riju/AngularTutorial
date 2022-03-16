@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -8,11 +9,16 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 export class StudentComponent implements OnChanges,OnInit {
 
   @Input() obj!:string;
+  id!:number;
+  name!:string;
   
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-      
+      this.route.params.subscribe(data=>{
+        this.id=data['id'],
+        this.name=data['name']
+      })
   }
 
   ngOnChanges(changes: SimpleChanges): void {

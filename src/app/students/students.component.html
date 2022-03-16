@@ -1,2 +1,5 @@
 <app-addstudent></app-addstudent>
-<app-student *ngFor="let u of users_list" [obj]="u"></app-student>
+<!-- <app-student ></app-student> -->
+<br>
+<a *ngFor="let u of users_list | lenfilter" [routerLink]="['/students',u]">{{u}}<br></a>
+<router-outlet></router-outlet>

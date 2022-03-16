@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StudentList } from '../services/ListOfStudents.service'
 
@@ -10,15 +11,16 @@ import { StudentList } from '../services/ListOfStudents.service'
 export class StudentsComponent implements OnInit {
 
   users_list:string[]=[]
-  constructor(private stu_service:StudentList) { }
+  constructor(private stu_service:StudentList,private router:Router) { }
 
   ngOnInit(): void {
 
     this.users_list=this.stu_service.user;  
     // this.stu_service.event.subscribe((data)=>{
-    //   console.log(data);
-      
+    //   console.log(data);     
     // })       
   }
+
+ 
 
 }
